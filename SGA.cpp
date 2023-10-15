@@ -1,5 +1,14 @@
-#include<bits/stdc++.h>
+#include <iostream>
+#include <vector>
+#include <algorithm>
+#include <random>
+#include <chrono>
+#include <set>
+#include <cassert>
+#include <numeric>
+
 using namespace std;
+
 /*
 https://en.wikipedia.org/wiki/Job-shop_scheduling
 */
