@@ -28,4 +28,23 @@ The SGA presented in the chapter is, **selection without replacement**
 To control and balance the behavior of the algorithm, enable searching capabilities.
 2. What will happen if $p_m = p_c = 1$ in an SGA? If $p_m = 1$, all offspring's genes are inverted, thus not able to preserve parents' traits.
 
+### 2.5
+All of these notations: $(\mu + \lambda), (\mu, \lambda), (1 + 1), \dots$-ES refers to different selection schemes:
+- $(\mu + \lambda)$: From $\mu$ parents, generate $\lambda$ offsprings. For the next generation, select $\mu$ best from those of $\mu + \lambda$ ones.
+- $(\mu, \lambda)$: Similar to above, but selects $\mu$ best **only** in the $\lambda$ offsprings generated.
+
+Therefore:
+- $(1+1)$-ES: from one parent, creates one offspring and replaces it with the parent if it's better. Someone argued it looks like a "stochastic hill climber" 
+- $(1+\lambda)$-ES: $\lambda$ mutants are generated, and then compete with parent.
+- $(1,\lambda)$-ES: the parent is always disregarded.
+
 ### 2.4
+Comparision table
+
+| Criteria        | SGA                                                                                         | ES                                                                                         | EP                                                                                  |
+|-----------------|---------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------|
+| Solution  repr. | Binary                                                                                      | Real-valued                                                                                | Real-valued                                                                         |
+| Steps           | 1. Initialize population  2. RWS (select fittest)  3*. Crossover  4. Mutation  5. Selection | 1. Init.  2. Picks random pair  3. Crossover  4*. Mutation  5. Selection                   | 1. Init.  2. Picks random individual  3*. Mutation, without crossover  4. Selection |
+| Crossover       | Single point,  multiple point,  or uniform                                                  | Intermediate (insignificant)                                                               | None!                                                                               |
+| Mutation        |                                                                                             | Normal distribution mutation (important exploration technique)                             | Same as ES                                                                          |
+| Selection       | new generation replaces old one $(\mu,\mu)$                                                 | $(\mu + \lambda)$-ES, $(\mu, \lambda)$-ES, $(1+1), (1+\lambda), (1,\lambda)$-ES, $\dots$   | $(\mu + \mu)$-ES (kinda)                                                            |
